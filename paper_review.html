@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<head>
+<title>Paper Reviews by Debopam</title>
+<meta charset="utf-8">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body style="background-color: #f4f8ff; padding-top: 20px; padding-right: 80px; padding-bottom: 50px; padding-left: 80px;">
+<ul style="list-style-type: none; margin: 0; padding: 0; overflow: hidden; background-color: #333;" width="100%">
+ <li style="float: left;"><a style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;" href="index.html">Home</a></li>
+  <li style="float: left;"><a style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;" href="resume_26FEB2019.pdf" target="_blank">Resume</a></li>
+  <li style="float: left;"><a style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;" href="index.html#papers">Technical Papers</a></li>
+  <li style="float: left;"><a style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;" href="index.html#posters">Posters</a></li>
+  <li style="float: left;"><a style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;" href="index.html#teaching">Teaching Assistantship</a></li>
+  <li style="float: left;"><a style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;" href="index.html#supervision">Supervision</a></li>
+  <li style="float: left;"><a style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;" href="index.html#service">Service Activities</a></li>
+  <li style="float: left;"><a style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;" href="index.html#talks">Talks</a></li>
+  <li style="float: left;"><a style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;" href="index.html#education">Education</a></li>
+  <li style="float: left;"><a style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;" href="#">Paper Review</a></li>
+</ul>
+<br/>
+<b><font size="5">Paper Reviews - Networks and Systems</font><br/>
+I started this initiative recently. Expect to see more reviews over time.</b><br/>
+
+<hr>
+
+<table width="100%"><tr><td><h3 id="papers">Thoughts on Load Distribution and the Role of Programmable Switches</h3>CCR 2019</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+Review date: 01-MAR-2019<br/>
+<br/><table width="80%"><tr><td>
+The authors claim that application semantics are often compromised in order to move application logic to programmable switches. 
+This is due to the fact that switches are state, compute, and amount of processing limited. 
+They analyze 2 such cases - in-network load balancing, and load partitioning, and discuss various alternative designs which use CPU 
+instead for application logic and state while the programmability of switches is used for forwarding based on non-standard header fields. 
+They observe that such design points have comparable performance without jeopardizing the application semantics. 
+For example, 3 alternatives to in-network load balancing are discussed - 1. Encoding load balancing information in the headers which 
+have to be parsed by the programmable switches, 2. storing connection tracking information in backend servers, and 
+3. using policy servers which process initial packets for connection-mapping. All 3 approaches are more flexible in terms of how 
+complex the lead balancing policies can be and have comparable performance. The authors argue in favor of implementing functions 
+like telemetry, packet scheduling, and in-network congestion control in programmable ASIC as there does not exist any comparable 
+end-host design point, these are oblivious to application logic, and these functions require fine grained access to switch counters.
+<br/><br/>
+I recently attended a talk on implementing in-network query processing. 
+Kudos to the work which accounted for so much complexity in order to move application logic to the network. 
+But I did not find any reasonable answer to why such functionality cannot be implemented using CPU/GPU/FPGA co-located with the switch. 
+Also, I think the solution does not provide reasonable performance in 
+case of an overflow to the control plane. In summary, we should look before we leap, so that we do not constrain an application 
+in order to move it to the network.
+</td></tr></table>
+
+<hr>
+
+<table width="100%"><tr><td><h3 id="papers">A fuzzy ant colony optimization algorithm for topology design of distributed local area networks</h3>IEEE Swarm Intelligence Symposium 2008</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+Review date: 30-JAN-2019<br/>
+<br/><table width="80%"><tr><td>
+Ant colony optimization (ACO) algorithm is based on the behavior of ant colonies. 
+When ants travel through a path, they release pheromones which evaporate over time. 
+Higher pheromone concentrations in a path attracts more ants. 
+This observation is applied in this paper in order to build distributed local area networks with multiple objectives 
+(low delay, higher reliability, low cost, etc.) The algorithm in a nutshell, is as follows: each on the n ants will generate 
+a feasible solution in each iteration. The ant with the best solution will release pheromones for each link it has selected. 
+In the next iteration all the ants stochastically select links which have high pheromones and build improved versions of the network. 
+It is termed fuzzy, as the aggregate objective value depends on the fuzzy memberships of the individual objectives 
+('low' cost, for example) to their respective sets. The algorithm performance is comparable to that of fuzzy simulated annealing, 
+but has much higher execution times for larger networks.
+I found the idea of using ant colony optimization in this case exciting. 
+This paper draws my attention to this field of optimization using natural phenomena like ant colony movements, bee hive foraging, bird flocking, etc.
+</td></tr></table>
+
+<hr>
+
+<table width="100%"><tr><td><h3 id="papers">Treads: Transparency-Enhancing Ads</h3>HotNets 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+Review date: 27-JAN-2019<br/>
+<br/><table width="80%"><tr><td>
+Ad-platform providers (Facebook, Google, etc.) allow advertisers to target users based on hundreds of attributes 
+(FB: 600+ computed internally, 500+ from data brokers) not disclosed to users. 
+Example expression for targeting can be as complex as "Millennials who live in Chicago, are interested in musicals, are currently unemployed, 
+and are not in a relationship", or more specific using personally identifiable information (PII). 
+This paper is a call to arms by running an advertiser that discloses such attributes to users. The users have to opt-in; 
+and the transparency enhancing advertiser then serves ads to those users by disclosing attribute (one at a time) in the ad itself. 
+Note that even the advertiser does not know the user-to-attribute mapping. To avoid terms of service violations, 
+tricks like obfuscating the attribute, steganographic schemes, etc. can be employed. 
+The solution is cost effective and forces ad platforms and advertisers to be more transparent. 
+The paper is a nice read, but I personally think it would be trivial for the ad platform to identify and block such efforts, 
+even if it is crowd-sourced. Nevertheless, the problem of ad platforms being extremely aggressive in collecting user attributes, 
+that the authors try to handle in this paper, is well known and has to be dealt with.
+</td></tr></table>
+
+<hr>
+
+<table width="100%"><tr><td><h3 id="papers">Is the Web ready for HTTP/2 Server Push?</h3>CoNEXT 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+Review date: 21-JAN-2019<br/>
+<br/><table width="80%"><tr><td>
+The authors are trying to build a testbed to systematically analyze H2 Server Push using a combination of tools 
+(mahimahi+mitmproxy+h2o-FastCGI module). They analyze the impact of various strategies on PLT and SpeedIndex. 
+Here are some interesting findings: 1. A full push is seldom useful; on the contrary, it might often be detrimental. 
+So the authors try to push a fraction of the objects and observe such strategies to be comparatively less detrimental. 
+2. The authors find out that pushing images early affects performance, as images do not contribute towards creation of the DOM or CSS Object Model 
+(CSSOM). Some sites are rendered only once the DOM is ready. 
+Alternatively, pushing a combination of JS+CSS critical for the DOM might be beneficial for some of the Web pages. 
+3. The authors try various other strategies like pushing only JS+CSS which are responsible for above-the-fold rendering, 
+and interleaving HTML with critical JS+CSS. But none of the push strategies are beneficial for majority of the Web pages. 
+This let the authors claim that the Web will have a tough time adopting H2 push.  
+The strategy might vary from site to site and requires a deep understanding of Web page structure + network effects + browser behavior 
+and rendering process + caching strategies.
+</td></tr></table>
+
+<hr>
+
+<table width="100%"><tr><td><h3 id="papers">Attaining the Promise and Avoiding the Pitfalls of TCP in the Datacenter</h3>NSDI 2015</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+Review date: 20-JAN-2019<br/>
+<br/><table width="80%"><tr><td>
+The author from Morgan Stanley shares his experience while deploying DCTCP in one of their data centers. 
+The common TCP pitfalls (stalls due to delayed ACKs, incast, etc.) urges them to incrementally deploy DCTCP. 
+They find several practical challenges not discussed or under-represented in the original paper. 
+2 such interesting problems are: 1. DCTCP is more aggressive than TCP when both coexist in contrary to the original claims. 
+This is because, the RED/ECN AQM behavior in the switches is such that there is only one threshold, 
+beyond which DCTCP packets are marked while TCP packets are dropped. This was dealt with by using DSCP (traffic classification), 
+whereby DCTCP packets were managed by AQM while TCP packets were managed by drop-tail queueing. 
+2. The probability of new DCTCP connections sharply reduce as the number of existing flows increase. 
+This is because the control (SYN/SYN-ACK) packets are not ECN marked in the default implementation as per ECN RFC. 
+DCTCP paper also recommends this setting in order to mitigate certain security risks. 
+The author claims that, as such security risks are absent within DC, 
+the control packets could be marked which addresses the connection establishment problem. 
+The paper also discusses other practical challenges which include TCP's auto tuning of receive buffer and its impact on TCP within data center, 
+scalability of DCTCP, etc.
+</td></tr></table>
+
+<hr>
+
+<table width="100%"><tr><td><h3 id="papers">Reducing Web Latency: the Virtue of Gentle Aggression</h3>SIGCOMM 2013</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+Review date: 20-JAN-2019<br/>
+<br/><table width="80%"><tr><td>
+Ideally TCP should deal with losses within 1-RTT in order to reduce latencies observed over today's Internet by not using the RTO which is often orders of magnitude larger than RTT. 
+The authors observe that a large fraction of the losses happen at the tail of small flows (last 1-2 packets are dropped). 
+Based on that, they propose 3 different schemes to deal with packet losses: 
+1. Reactive: Resend the last packet in a window in order to trigger fast recovery without waiting for the RTO to trigger. 
+They deployed this scheme in the wild between the edge and end users. 
+2. Proactive: Send redundant packets to deal with packet loss. 
+They deployed it in the wild between Google's servers (back office traffic). 
+3. Corrective: Send checksum followed by a burst (not deployed at the time of writing the paper). 
+The solutions seem trivial, but the implementations were not. 
+They had to take into account that any loss should be dealt with by reducing the window size in order to be fair to vanilla TCP. 
+Also, middleboxes had to be detected and handled as they would otherwise interfere with the solutions, except reactive. 
+They observe a 47% decrease in the 99-th ptile latency compared to TCP.
+</td></tr></table>
+
+<hr>
+
+<table width="100%"><tr><td><h3 id="papers">Studying the Evolution of Content Providers in the Internet Core</h3>TMA 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+Review date: 16-JAN-2019<br/>
+<br/><table width="80%"><tr><td>
+The authors study the evolution of the core of the Internet - transit providers being replaced over time by content providers. 
+The authors define the core elements as those entities in the Internet which are densely connected. 
+They use the concept of k-cores from graph theory to identify the core elements. 
+They use CAIDA's longitudinal BGP (RIPE RIS, RouteViews) + traceroute (Archipelago) data to study the evolution. 
+After identifying the Big Seven content providers, the authors try to explain individual growths by associating them to various events (like peering). 
+This part is a bit dry and hand-wavy though. Here is the link to their datasets and visualizations: <a href="http://cnet.fi.uba.ar/TMA2018/" target="_blank">http://cnet.fi.uba.ar/TMA2018/</a>
+</td></tr></table>
+
+<hr>
+
+<table width="100%"><tr><td><h3 id="papers">Passive Observations of a Large DNS Service: 2.5 Years in the Life of Google</h3>TMA 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+Review date: 16-JAN-2019<br/>
+<br/><table width="80%"><tr><td>
+This measurement study shows that adoption of public DNS service like Google Public DNS is driven by DDoS outages (no. of tweets versus adoption) and the end users usually do a one way change never returning back to their ISP's DNS resolver. 
+CDNs have problem optimizing service because the public DNS servers are no longer proxies for client locations. 
+Hence, ECS or EDNS Client Subnet is used, which allows public DNS services to forward part of the client address to authoritative name servers. 
+The authors use this feature to passively analyze the behavior of such public DNS services. 
+They find that queries to Google DNS are often routed to sub-optimal resolvers in a different country which raises privacy questions. 
+Also, they find many email servers using such public DNS service which also raises privacy issues - PTR queries contain critical ECS information which expose communicating partners to various authoritative servers.
+</td></tr></table>
+
+<hr>
+
+<table width="100%"><tr><td><h3 id="papers">BGP Communities: Even more Worms in the Routing Can</h3>IMC 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+Review date: 13-JAN-2019<br/>
+<br/><table width="80%"><tr><td>
+BGP communities are BGP attributes used to tag advertisements. 
+They are used, for example, for blackholing in case of DDoS attacks, as discussed in the paper above. 
+But this feature can be abused by attackers to blackhole prefixes, steer traffic and manipulate routes. 
+This is possible as ASes forward these communities without filtering, and as a result, these communities freely propagate all across the Internet. 
+Attackers use this fact, coupled with the lack of crypto integrity, to launch various attacks. 
+The authors craft various such attacks in the paper, test them first in the lab and then in the wild after seeking permissions from various ASes.
+</td></tr></table>
+
+<hr>
+
+<table width="100%"><tr><td><h3 id="papers">Inferring BGP Blackholing Activity in the Internet</h3>IMC 2017</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+Review date: 12-JAN-2019<br/>
+<br/><table width="80%"><tr><td>
+Passive and active measurements inferring the adoption of BGP blackholing (BGP announcements letting upstream ISP/IXPs drop packets to victim destinations) in the wild in order to mitigate DDoS attacks. 
+The adoption rates have been high in recent years among ISP/IXPs. 
+The adoption has seen spikes during large scale DDoS attacks. 
+One major drawback of blackholing is that, the user does not know when the attack is over, so blackholing sees ON/OFF patterns. 
+It is not clear to me if this feature of BGP can be used to design new attacks. 
+The authors discuss that blackholing is also used by certain malicious scanning services in order to be more treacherous.
+</td></tr></table>
+</body>
