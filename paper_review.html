@@ -29,9 +29,19 @@ I started this initiative recently. Expect to see more reviews over time.</b><br
 
 <hr>
 
+<table width="100%"><tr><td><h3 id="papers">Internet Congestion Control via Deep Reinforcement Learning</h3>arXiv:1810.03259v2 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+Review date: 03-MAR-2019<br/>
+<br/><table width="80%"><tr><td style="text-align: justify;">
+As the name suggests, the authors apply deep RL to congestion control. Remy's offline learning provides static solution, so performance can degrade significantly when network conditions change. PCC relies on micro-experiments and hence is reactive. So, there is scope for proactive learning and predictions. States are vectors comprising of sending rate, received rate, loss rate, latency, and corresponding reward for a monitoring interval (MI). Actions are changes to sending rates at each MI based on a fixed length history of sending rates and corresponding states. The authors argue that the history-length can be short yet effective. Rewards should be application specific. They run 2 sets of experiments using Pantheon and Emulab - 1. test a simple model (capacity, latency) with simple objectives and examine its behavior in and around the range of conditions, and 2. compare with other schemes like Remy, Copa and PCC-Vivace by using their reward functions. The initial results are promising - the proposed scheme, Custard, reacts faster to signs of congestion (like higher delay) by predicting decreasing rewards.
+<br/><br/>
+According to me, Remy makes sense if network conditions are static, as is often the case. PCC or BBR, on the other hand, can have better performance when the network conditions are dynamic. I think the benefit of RL-based scheme depends on how predictable the changes in dynamic networks are. I would like to apply such schemes though to satellite networks which are both dynamic and predictable
+</td></tr></table>
+
+<hr>
+
 <table width="100%"><tr><td><h3 id="papers">Thoughts on Load Distribution and the Role of Programmable Switches</h3>CCR 2019</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
 Review date: 01-MAR-2019<br/>
-<br/><table width="80%"><tr><td>
+<br/><table width="80%"><tr><td style="text-align: justify;">
 The authors claim that application semantics are often compromised in order to move application logic to programmable switches. 
 This is due to the fact that switches are state, compute, and amount of processing limited. 
 They analyze 2 such cases - in-network load balancing, and load partitioning, and discuss various alternative designs which use CPU 
@@ -56,7 +66,7 @@ in order to move it to the network.
 
 <table width="100%"><tr><td><h3 id="papers">A fuzzy ant colony optimization algorithm for topology design of distributed local area networks</h3>IEEE Swarm Intelligence Symposium 2008</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
 Review date: 30-JAN-2019<br/>
-<br/><table width="80%"><tr><td>
+<br/><table width="80%"><tr><td style="text-align: justify;">
 Ant colony optimization (ACO) algorithm is based on the behavior of ant colonies. 
 When ants travel through a path, they release pheromones which evaporate over time. 
 Higher pheromone concentrations in a path attracts more ants. 
@@ -75,7 +85,7 @@ This paper draws my attention to this field of optimization using natural phenom
 
 <table width="100%"><tr><td><h3 id="papers">Treads: Transparency-Enhancing Ads</h3>HotNets 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
 Review date: 27-JAN-2019<br/>
-<br/><table width="80%"><tr><td>
+<br/><table width="80%"><tr><td style="text-align: justify;">
 Ad-platform providers (Facebook, Google, etc.) allow advertisers to target users based on hundreds of attributes 
 (FB: 600+ computed internally, 500+ from data brokers) not disclosed to users. 
 Example expression for targeting can be as complex as "Millennials who live in Chicago, are interested in musicals, are currently unemployed, 
@@ -94,7 +104,7 @@ that the authors try to handle in this paper, is well known and has to be dealt 
 
 <table width="100%"><tr><td><h3 id="papers">Is the Web ready for HTTP/2 Server Push?</h3>CoNEXT 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
 Review date: 21-JAN-2019<br/>
-<br/><table width="80%"><tr><td>
+<br/><table width="80%"><tr><td style="text-align: justify;">
 The authors are trying to build a testbed to systematically analyze H2 Server Push using a combination of tools 
 (mahimahi+mitmproxy+h2o-FastCGI module). They analyze the impact of various strategies on PLT and SpeedIndex. 
 Here are some interesting findings: 1. A full push is seldom useful; on the contrary, it might often be detrimental. 
@@ -113,7 +123,7 @@ and rendering process + caching strategies.
 
 <table width="100%"><tr><td><h3 id="papers">Attaining the Promise and Avoiding the Pitfalls of TCP in the Datacenter</h3>NSDI 2015</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
 Review date: 20-JAN-2019<br/>
-<br/><table width="80%"><tr><td>
+<br/><table width="80%"><tr><td style="text-align: justify;">
 The author from Morgan Stanley shares his experience while deploying DCTCP in one of their data centers. 
 The common TCP pitfalls (stalls due to delayed ACKs, incast, etc.) urges them to incrementally deploy DCTCP. 
 They find several practical challenges not discussed or under-represented in the original paper. 
@@ -134,7 +144,7 @@ scalability of DCTCP, etc.
 
 <table width="100%"><tr><td><h3 id="papers">Reducing Web Latency: the Virtue of Gentle Aggression</h3>SIGCOMM 2013</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
 Review date: 20-JAN-2019<br/>
-<br/><table width="80%"><tr><td>
+<br/><table width="80%"><tr><td style="text-align: justify;">
 Ideally TCP should deal with losses within 1-RTT in order to reduce latencies observed over today's Internet by not using the RTO which is often orders of magnitude larger than RTT. 
 The authors observe that a large fraction of the losses happen at the tail of small flows (last 1-2 packets are dropped). 
 Based on that, they propose 3 different schemes to deal with packet losses: 
@@ -153,7 +163,7 @@ They observe a 47% decrease in the 99-th ptile latency compared to TCP.
 
 <table width="100%"><tr><td><h3 id="papers">Studying the Evolution of Content Providers in the Internet Core</h3>TMA 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
 Review date: 16-JAN-2019<br/>
-<br/><table width="80%"><tr><td>
+<br/><table width="80%"><tr><td style="text-align: justify;">
 The authors study the evolution of the core of the Internet - transit providers being replaced over time by content providers. 
 The authors define the core elements as those entities in the Internet which are densely connected. 
 They use the concept of k-cores from graph theory to identify the core elements. 
@@ -166,7 +176,7 @@ This part is a bit dry and hand-wavy though. Here is the link to their datasets 
 
 <table width="100%"><tr><td><h3 id="papers">Passive Observations of a Large DNS Service: 2.5 Years in the Life of Google</h3>TMA 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
 Review date: 16-JAN-2019<br/>
-<br/><table width="80%"><tr><td>
+<br/><table width="80%"><tr><td style="text-align: justify;">
 This measurement study shows that adoption of public DNS service like Google Public DNS is driven by DDoS outages (no. of tweets versus adoption) and the end users usually do a one way change never returning back to their ISP's DNS resolver. 
 CDNs have problem optimizing service because the public DNS servers are no longer proxies for client locations. 
 Hence, ECS or EDNS Client Subnet is used, which allows public DNS services to forward part of the client address to authoritative name servers. 
@@ -179,7 +189,7 @@ Also, they find many email servers using such public DNS service which also rais
 
 <table width="100%"><tr><td><h3 id="papers">BGP Communities: Even more Worms in the Routing Can</h3>IMC 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
 Review date: 13-JAN-2019<br/>
-<br/><table width="80%"><tr><td>
+<br/><table width="80%"><tr><td style="text-align: justify;">
 BGP communities are BGP attributes used to tag advertisements. 
 They are used, for example, for blackholing in case of DDoS attacks, as discussed in the paper above. 
 But this feature can be abused by attackers to blackhole prefixes, steer traffic and manipulate routes. 
@@ -192,7 +202,7 @@ The authors craft various such attacks in the paper, test them first in the lab 
 
 <table width="100%"><tr><td><h3 id="papers">Inferring BGP Blackholing Activity in the Internet</h3>IMC 2017</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
 Review date: 12-JAN-2019<br/>
-<br/><table width="80%"><tr><td>
+<br/><table width="80%"><tr><td style="text-align: justify;">
 Passive and active measurements inferring the adoption of BGP blackholing (BGP announcements letting upstream ISP/IXPs drop packets to victim destinations) in the wild in order to mitigate DDoS attacks. 
 The adoption rates have been high in recent years among ISP/IXPs. 
 The adoption has seen spikes during large scale DDoS attacks. 
