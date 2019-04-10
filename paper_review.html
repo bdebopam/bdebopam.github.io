@@ -32,6 +32,35 @@ I started this initiative recently. Expect to see more reviews over time.</b><br
 
 <hr>
 
+<table width="100%"><tr><td><h3 id="papers">Inferring Persistent Interdomain Congestion</h3>SIGCOMM 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+Review date: 10-APR-2019<br/>
+<br/><table width="80%"><tr><td style="text-align: justify;">
+This work aims to build a third-party tool to infer persistent inter-domain congestion. 
+This is very interesting, as we have seen various cases of conflict in the past between 
+access ISPs and transit or content provider ISPs where the latter claims that the former 
+deliberately throttled inter-domain links in order to fetch more money. This work relies on 
+placing vantage points (VPs) in access ISPs and running time series latency probes (TSLPs) 
+to near and far ends of the inter-domain links. The inter-domain links are identified 
+using a tool called bdrmap which relies on a variant of traceroute and applies heuristics 
+to convert the interface-level map to router-level map using data from various sources like 
+RouteViews, RIPE RIS, Packet Clearing House (PCH), peeringDB, WHOIS data, etc. TSLP relies on 
+sending ICMP packets to destinations behind the inter-domain links such that the TTLs expire at the near and 
+far ends of the concerned link. Finally, level-shift and autocorrelation techniques are applied to identify links 
+with persistent congestion. The results are validated against packet loss data, throughput measurements 
+leveraging M-lab NDT servers, video streaming QoS data gathered over the corresponding links, and 
+first-hand feedback from 2 access ISPs.
+<br/><br/>
+The findings expose long-term temporal variations in inter-domain congestion between various access and 
+transit/content provider ISPs. Although majority of such links do not exhibit 
+persistent congestion, some of them do definitely reveal such patterns. As the authors discuss, future 
+work in this direction might include correlating such congestion to temporal changes in topology and 
+routing as observed from BGP advertisements. Also, it might be interesting to correlate crowd-sourced 
+QoE measurements and observed inter-domain congestion.
+
+</td></tr></table>
+
+<hr>
+
 <table width="100%"><tr><td><h3 id="papers">Incentivizing Censorship Measurements via Circumvention</h3>SIGCOMM 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
 Review date: 13-MAR-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
