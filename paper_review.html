@@ -32,6 +32,32 @@ I started this initiative recently. Expect to see more reviews over time.</b><br
 
 <hr>
 
+<table width="100%"><tr><td><h3 id="papers">Are we one hop away from a better internet?</h3>IMC 2015</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+Review date: 17-APR-2019<br/>
+<br/><table width="80%"><tr><td style="text-align: justify;">
+The authors measure how close important services are to end users. Baseline traceroute measurements from PlanetLab to 
+154K BGP prefixes (from iPlane dataset) shows only 2% paths are one AS hop. But the authors expect to see shorter paths between important services 
+and ASes with more traffic. To verify, the authors run traceroute (Paris traceroute using Scamper) to 3.8M prefixes (gathered from 
+anonymized user queries to a popular CDN; verified against a publicly available Akamai dataset) from public cloud 
+infrastructure - GCE, EC2, and IBM SoftLayer. The IP-level paths gathered are mapped to AS-level paths 
+after cleaning the data, mapping IP addresses to ASes using iPlane dataset, applying heuristics to remove unknown ASes, and finally discarding outliers. 
+The measurements show that 87% of paths from GCE to users are at most 2 hops in length while 41% are one-hop long. 
+The shortest paths to ASes weighted by the volume of traffic from such ASes (combining the CDN queries and the AS-path details) 
+reveal more than 80% of the paths to be 1 AS hop or less. These measurements also show that Google peers 
+with larger ASes more exhaustively and the authors identify more than 5K peerings, an order of magnitude higher 
+than a previous study showed. Resolving EDNS0 client subnet queries to google.com from the /24 prefixes reveal that 
+paths to gogle.com are even shorter than to GCE (cloud) as some front-end servers lie within eyeball networks. AWS has 756 peers 
+and rely on 20 providers (5 for Google) for the rest of their traffic. 
+<br/><br/>
+The authors discuss that such short paths over the Internet bring opportunities for improving performance and security. Only the sources 
+and destinations have incentives to improve performance while intermediate ASes do not care. Hence existing protocols can be tuned or newer ones 
+proposed in order to leverage such direct paths between sources and destinations. Joint traffic engineering as well as faster route convergence can be 
+explored. Also, such direct paths might reduce spoofed traffic threat, limit prefix hijacks, and help avoid outages.
+
+</td></tr></table>
+
+<hr>
+
 <table width="100%"><tr><td><h3 id="papers">Inferring Persistent Interdomain Congestion</h3>SIGCOMM 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
 Review date: 10-APR-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
