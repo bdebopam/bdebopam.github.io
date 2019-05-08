@@ -32,6 +32,29 @@ I started this initiative recently. Expect to see more reviews over time.</b><br
 
 <hr>
 
+<table width="100%"><tr><td><h3 id="papers">Drongo: Speeding Up CDNs with Subnet Assimilation from the Client</h3>ACM CoNEXT 2017</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+Review date: 08-MAY-2019<br/>
+<br/><table width="80%"><tr><td style="text-align: justify;">
+The authors propose a user-centric tool for improving CDN performance. Clients are often 
+redirected to a sub-optimal CDN cache due to various reasons - 
+sub-optimal mapping of the Internet by the CDN, traffic engineering, policy, etc. To make CDN more performant 
+for the clients, the authors leverage EDNS0 client subnet extension (ECS) which is known for handling clients using 
+public DNS by forwarding client-subnets to the CDN's authoritative DNS servers. A client traceroutes to identify hops 
+in the forward-path towards the default CDN cache. Fake DNS queries with subnets of the hops are used to get the mapped CDN 
+cache servers for each hop. If an intermediate hop is persistently mapped to a CDN cache with lower latency (latency valley) between the client 
+and that cache, then the client fakes that subnet while using the CDN service. The authors observe that such latency valleys are consistent 
+over days and hence this entire mechanism has low measurement overhead.
+<br/><br/>
+I wonder what would happen if Drongo operates at scale. If a large fraction of clients fake client-subnets 
+there is a high probability of the Internet traffic getting skewed. It is probable that CDN traffic-engineering 
+gets affected and the CDN's view of the Internet also becomes worse. 
+Nevertheless, the results prove there is enough scope for CDN performance improvement. Also this work serves 
+as a design point which is more user-centric than the CDN-broker approach.
+
+</td></tr></table>
+
+<hr>
+
 <table width="100%"><tr><td><h3 id="papers">Are we one hop away from a better Internet?</h3>IMC 2015</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
 Review date: 17-APR-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
