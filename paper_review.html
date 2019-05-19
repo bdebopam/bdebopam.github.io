@@ -36,13 +36,13 @@ I started this initiative recently. Expect to see more reviews over time.</b><br
 Review date: 16-MAY-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 Undersea fiber-optic cables carry 99% of the Internet traffic today amounting to petabits per second with the average capacity 
-per cable increasing at a fast pace. There has been a recent boom in laying these submarine cabled due to 
-large content providers installing their own means on WAN data transfer. So, the availability and resilience of 
+per cable increasing at a fast pace. There has been a recent boom in laying these submarine cables due to 
+large content providers installing their own means of WAN data transfer. So, the availability and resilience of 
 today's Internet depend largely on the availability of these cables. Nevertheless, these cables experience frequent 
 down-times due to nature and human triggered events. But unfortunately, the layer-3 measurements run at large scale 
 over the Internet cannot be tied to the cables which operate at layer-2. Also, often a cable is shared by tens of 
 entities which might all map to different layer-3 paths and hence give a false estimate of redundancy. So, it is necessary to 
-map layer-3 measurements to undersea fiber optic cables it order to gain reasonable insights on Internet performance, 
+map layer-3 measurements to undersea fiber optic cables in order to gain reasonable insights on Internet performance, 
 availability, and redundancy.
 <br/><br/>
 The authors use traceroute data gathered from RIPE Atlas probes in order to map pairs of consecutive routers to 
@@ -50,7 +50,7 @@ the latencies seen between them temporally. Then the routers are geo-located usi
 end-point locations of undersea cables are gathered from TeleGeography and Greg's undersea cable maps. The authors then analyze 
 whether pairs of routers can be mapped to pairs of cable endpoints. The authors claim that it is feasible to produce such 
 mapping by augmenting this analysis with observed changes in latencies between routers and corresponding cable downtimes 
-reported online. Such information can not only help us analyze observed transient increase in latencies observed over 
+reported online. Such information can not only help us analyze transient spikes in latencies observed over 
 the Internet, but also help providers and other ISPs measure the true redundancy and resilience and plan future peerings better.
 </td></tr></table>
 
