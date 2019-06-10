@@ -32,8 +32,34 @@ I started this initiative recently. Expect to see more reviews over time.</b><br
 
 <hr>
 
-<table width="100%"><tr><td><h3 id="papers">Credit-Scheduled Delay-Bounded Congestion Control for Datacenters</h3>SIGCOMM 2017</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+<table width="100%"><tr><td><h3 id="papers">High Speed Networks Need Proactive Congestion Control</h3>HotNets 2015</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
 Review date: 10-JUN-2019<br/>
+<br/><table width="80%"><tr><td style="text-align: justify;">
+Before I review this paper, it is fair to review briefly Nandita Dukkipati's PhD dissertation (2008) 
+titled "Rate Control Protocol (RCP): Congestion control to make flows complete quickly". 
+In RCP, each network node computes rate (based on input traffic rate and queue length at time t) 
+for each flow and advertises the rates to the flows. Each 
+flow sends at the minimum rate (min. of all the advertisements) so as not to overflow the bottleneck capacity. Eventually, each flow 
+converges to a fair-share rate (max-min fair; progressive filling). In most reactive 
+algorithms there is a tradeoff between convergence speed and stability; for example, RCP 
+can try to converge quickly by taking large steps towards the target rate, but this risks 
+perpetual overshooting and system instability.
+<br/><br/>
+This paper discusses the above reactive scheme and the associated slow convergence issues of such 
+schemes. The authors then propose a proactive distributed message-passing based congestion 
+control scheme named PERC (Proactive Explicit Rate Control). Each flow informs rate information to each 
+link in path. Each link aggregates such information over multiple flows, and then 
+asynchronously informs the fair share rate to each flow. This scheme is not based on 
+instantaneous traffic and queue size measurements and hence converges faster than reactive 
+schemes. PERC can be implemented and deployed leveraging programmable switches. Even a 
+centralized arbiter based approach, which in this case is flow-based, would be more 
+scalable than FastPass (SIGCOMM'14) which is packet-based.
+</td></tr></table>
+
+<hr>
+
+<table width="100%"><tr><td><h3 id="papers">Credit-Scheduled Delay-Bounded Congestion Control for Datacenters</h3>SIGCOMM 2017</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+Review date: 09-JUN-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 In today's data center networks with high bandwidth and low delay, it is critical to craft 
 congestion control which provides zero loss, low queue occupancy, and fast convergence. 
