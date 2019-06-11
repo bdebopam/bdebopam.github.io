@@ -32,6 +32,27 @@ I started this initiative recently. Expect to see more reviews over time.</b><br
 
 <hr>
 
+<table width="100%"><tr><td><h3 id="papers">Fast network congestion detection and avoidance using P4</h3>NEAT 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+Review date: 11-JUN-2019<br/>
+<br/><table width="80%"><tr><td style="text-align: justify;">
+Controlling the queuing delay is of utmost important in the emerging tactile Internet. 
+Packets should not be delayed beyond a threshold or dropped in the network. Also end-host 
+congestion control needs to be avoided as tactile traffic should not be rate controlled 
+or buffered. Hence the authors explore how to enable congestion control and avoidance in 
+the forwarding nodes rather than at end-hosts or controllers.A central controller still 
+sets the latency thresholds and other parameters, while the data plane keeps track of 
+processing and queuing delays and re-routes latency-critical flows if needed. A forwarding 
+node, on detecting higher processing/queuing delay for a latency critical flow either 
+preemptively switches it to a better backup path or notifies the upstream node of 
+congestion for the specific flow. As in P4, table-entries cannot be modified without a 
+controller chipping in, a local controller is notified of congestion and takes re-routing 
+decisions. Through Mininet simulations and POC on real hardware, the authors show 
+reduction in average and maximum delay, and jitter compared to end-to-end as well as 
+controller based congestion control.
+</td></tr></table>
+
+<hr>
+
 <table width="100%"><tr><td><h3 id="papers">High Speed Networks Need Proactive Congestion Control</h3>HotNets 2015</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
 Review date: 10-JUN-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
