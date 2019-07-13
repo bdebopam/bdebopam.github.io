@@ -32,6 +32,35 @@ I started this initiative recently. Expect to see more reviews over time.</b><br
 
 <hr>
 
+<table width="100%"><tr><td><h3 id="papers">Rethinking congestion control for cellular networks</h3>HotNets 2017</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+Review date: 13-JUL-2019<br/>
+<br/><table width="80%"><tr><td style="text-align: justify;">
+The authors propose a network-driven congestion signalling scheme which might outperform end-to-end 
+congestion control schemes and ECN-based AQM (active queue management) schemes. The hypothesis is based on 2 
+key observations - 1. a network-centric scheme can efficiently estimate link capacity, and 2. ECN-based 
+schemes do not ask end-points to increase sending rates. The scheme needs base stations to mark 
+packets with 1 bit of feedback asking the sender to either accelerate or brake. When the sender is 
+asked to accelerate (brake), it would send 2 (0) packets instead of 1 on receiving the marked ACK. Thus 
+a congestion window of size w can change to any value between 0 and 2w within 1 RTT.
+<br/><br/>
+Why cellular networks? 1. Cellular networks maintain per-user state and queue at base stations. Hence, 
+it is possible to measure current rate and estimate target rate per user. Also, inter-user fairness is 
+achieved by default. 2. The network conditions and resources available change dramatically with time. Hence, 
+it is extremely important that the network signals endpoints to quickly increase window sizes. 
+<br/><br/>
+The authors show how to deploy this scheme using ECN bits inn cellular network with and without legacy ECN. 
+The preliminary experiments show that this accel-brake control (ABC) scheme can outperform the 2nd 
+best scheme (Cubic+Codel) by as much as 21%.
+</td></tr></table>
+The way in which target rates are computed at base stations is a bit handwavy. Also, per-user fairness is achieved by default 
+in cellular networks due to base stations using per-user queues. But the discussion on per-flow fairness could have been a bit 
+more detailed. It was not clear how using additive increase could be effective. As the authors mention briefly, 
+the 'additional' additive component might result in persistent queue at the router which now receives more 
+traffic than estimated. Nevertheless, this idea of using network-driven congestion control schemes in 
+environments which are already endpoint aware is cool and is in the right direction to obviate endpoint 
+congestion control.
+<hr>
+
 <table width="100%"><tr><td><h3 id="papers">Fast network congestion detection and avoidance using P4</h3>NEAT 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
 Review date: 11-JUN-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
