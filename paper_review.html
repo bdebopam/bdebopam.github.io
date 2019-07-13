@@ -51,7 +51,7 @@ it is extremely important that the network signals endpoints to quickly increase
 The authors show how to deploy this scheme using ECN bits inn cellular network with and without legacy ECN. 
 The preliminary experiments show that this accel-brake control (ABC) scheme can outperform the 2nd 
 best scheme (Cubic+Codel) by as much as 21%.
-</td></tr></table>
+<br/><br/>
 The way in which target rates are computed at base stations is a bit handwavy. Also, per-user fairness is achieved by default 
 in cellular networks due to base stations using per-user queues. But the discussion on per-flow fairness could have been a bit 
 more detailed. It was not clear how using additive increase could be effective. As the authors mention briefly, 
@@ -59,6 +59,8 @@ the 'additional' additive component might result in persistent queue at the rout
 traffic than estimated. Nevertheless, this idea of using network-driven congestion control schemes in 
 environments which are already endpoint aware is cool and is in the right direction to obviate endpoint 
 congestion control.
+</td></tr></table>
+
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">Fast network congestion detection and avoidance using P4</h3>NEAT 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
