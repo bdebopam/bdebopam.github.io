@@ -32,6 +32,24 @@ I started this initiative recently. Expect to see more reviews over time.</b><br
 
 <hr>
 
+<table width="100%"><tr><td><h3 id="papers">BwE: Flexible, Hierarchical Bandwidth Allocation for WAN Distributed Computing</h3>SIGCOMM 2015</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+Review date: 18-JUL-2019<br/>
+<br/><table width="80%"><tr><td style="text-align: justify;">
+The authors describe Google's global hierarchical bandwidth enforcer (BwE) which allocates 
+bandwidth to different services consuming WAN resources and enables utilization higher than 90%. 
+Google's services need guaranteed bandwidth allocation irrespective of the number of 5-tuple 
+flows, which is difficult to achieve at this scale using solutions like MPLS. Also, the allocation 
+policies can be complex, allocation strategies should account for multiple paths between sites, and
+bandwidth consumption can be delegated. BwE, integrated into traffic engineering (TE), is hierarchical 
+in structure starting from end-hosts all the way to the global enforcer. Flow groups (aggregation of 
+flows) can have different granularities - task/job/user/cluster/site, and managed by enforcers at different 
+layers of the hierarchy. BwE enables services to be isolated and be guaranteed bandwidth based on policies 
+and demands. It also enables administrators to define allocation policies at a single point, which get enforced 
+at end hosts.
+</td></tr></table>
+
+<hr>
+
 <table width="100%"><tr><td><h3 id="papers">Rethinking congestion control for cellular networks</h3>HotNets 2017</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
 Review date: 13-JUL-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
