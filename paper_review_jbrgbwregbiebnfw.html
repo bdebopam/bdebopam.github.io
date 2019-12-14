@@ -32,8 +32,30 @@ I started this initiative recently. Expect to see more reviews over time.</b><br
 
 <hr>
 
+<table width="100%"><tr><td><h3 id="papers">Beating BGP is Harder than we Thought</h3>HotNets 2019</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
+<br/><table width="80%"><tr><td style="text-align: justify;">
+It is an interesting paper on whether performance-aware routing schemes are invariably better than good old BGP routing 
+in the Internet. 3 cases are considered - 1. PoPs picking optimal egress towards the client instead of 
+relying on BGP preference, 2. Content-providers leveraging unicast mapping between clients 
+and the nearest PoP instead of relying on BGP anycast, and 3. Content-providers using private WAN 
+instead of public Internet to route between client and far-away PoPs. The authors find by analyzing previous studies 
+that none of the optimizations resoundingly perform better than BGP - rather the performances are mostly 
+comparable and some times worse. The paper discusses some of the reasons for these interesting observations. For example, 
+alternate routes between nearby PoPs and clients can get congested together and the congestion might be at the client 
+network, thus reducing significantly the effectiveness of systems like Facebook's EdgeFabric. When it comes to 
+anycast versus unicast mapping between clients and PoPs, the authors point out that content providers already 
+tweak BGP anycast by leveraging path-prepending and BGP communities. Also, eDNS 
+client-subnet extension adoption has been low and hence content providers still rely on LDNS server address 
+in order to map, which might be sub-optimal. The effectiveness of routing through private WAN is also not always obvious. 
+For example traffic from India is routed over the Pacific via Google's WAN, whereas default Internet routing uses a 
+more direct path via Europe thus reducing latency between clients in India and Google services in the US. 
+The authors briefly discuss that peering and infrastructure investments can still be beneficial for content providers 
+by adding to the availability of the system and services, if not to the performance always.
+</td></tr></table>
+
+<hr>
+
 <table width="100%"><tr><td><h3 id="papers">BwE: Flexible, Hierarchical Bandwidth Allocation for WAN Distributed Computing</h3>SIGCOMM 2015</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 18-JUL-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 The authors describe Google's global hierarchical bandwidth enforcer (BwE) which allocates 
 bandwidth to different services consuming WAN resources and enables utilization higher than 90%. 
@@ -51,7 +73,6 @@ at end hosts.
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">Rethinking congestion control for cellular networks</h3>HotNets 2017</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 13-JUL-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 The authors propose a network-driven congestion signalling scheme which might outperform end-to-end 
 congestion control schemes and ECN-based AQM (active queue management) schemes. The hypothesis is based on 2 
@@ -82,7 +103,6 @@ congestion control.
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">Fast network congestion detection and avoidance using P4</h3>NEAT 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 11-JUN-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 Controlling the queuing delay is of utmost importance in the emerging tactile Internet. 
 Packets should not be delayed beyond a threshold or dropped in the network. Also end-host 
@@ -103,7 +123,6 @@ controller based congestion control.
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">High Speed Networks Need Proactive Congestion Control</h3>HotNets 2015</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 10-JUN-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 Before I review this paper, it is fair to review briefly Nandita Dukkipati's PhD dissertation (2008) 
 titled "Rate Control Protocol (RCP): Congestion control to make flows complete quickly". 
@@ -129,7 +148,6 @@ scalable than FastPass (SIGCOMM'14) which is packet-based.
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">Credit-Scheduled Delay-Bounded Congestion Control for Datacenters</h3>SIGCOMM 2017</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 09-JUN-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 In today's data center networks with high bandwidth and low delay, it is critical to craft 
 congestion control which provides zero loss, low queue occupancy, and fast convergence. 
@@ -149,7 +167,6 @@ random jitter, and network calculus to determine the queuing capability.
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">Untangling the world-wide mesh of undersea cables</h3>HotNets 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 16-MAY-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 Undersea fiber-optic cables carry 99% of the Internet traffic today amounting to petabits per second with the average capacity 
 per cable increasing at a fast pace. There has been a recent boom in laying these submarine cables due to 
@@ -173,7 +190,6 @@ the Internet, but also help providers and other ISPs measure the true redundancy
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">Drongo: Speeding Up CDNs with Subnet Assimilation from the Client</h3>ACM CoNEXT 2017</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 08-MAY-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 The authors propose a user-centric tool for improving CDN performance. Clients are often 
 redirected to a sub-optimal CDN cache due to various reasons - 
@@ -196,7 +212,6 @@ as a design point which is more user-centric than the CDN-broker approach.
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">Are we one hop away from a better Internet?</h3>IMC 2015</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 17-APR-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 The authors measure how close important services are to end users. Baseline traceroute measurements from PlanetLab to 
 154K BGP prefixes (from iPlane dataset) shows only 2% paths are one AS hop. But the authors expect to see shorter paths between important services 
@@ -222,7 +237,6 @@ explored. Also, such direct paths might reduce spoofed traffic threat, limit pre
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">Inferring Persistent Interdomain Congestion</h3>SIGCOMM 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 10-APR-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 This work aims to build a third-party tool to infer persistent inter-domain congestion. 
 This is very interesting, as we have seen various cases of conflict in the past between 
@@ -251,7 +265,6 @@ QoE measurements and observed inter-domain congestion.
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">Incentivizing Censorship Measurements via Circumvention</h3>SIGCOMM 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 13-MAR-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 Current censorship measurement and circumvention platforms are independent. This work aims to combine these 2 goals in a single platform (C-Saw). It relies on crowdsourced measurements and incentivizes users by offering lower PLTs while browsing. Types of censorship can vary between ISPs as well as for individual services and range from DNS blocking to IP, HTTP, and HTTPS blocking. The global database gathers censorship data (service, ISP, type of blocking) which can be used by users (client local proxy and local DB) to optimize the circumvention strategy. Such strategies vary from simply using IP addresses instead of domains or domain fronting to leveraging relay based solutions like ToR or Lantern. The authors claim that the average PLT can be improved by 48% and 63% in comparison to Lantern and ToR based circumvention, respectively.
 </td></tr></table>
@@ -259,7 +272,6 @@ Current censorship measurement and circumvention platforms are independent. This
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">Internet Congestion Control via Deep Reinforcement Learning</h3>arXiv:1810.03259v2 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 03-MAR-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 As the name suggests, the authors apply deep RL to congestion control. Remy's offline learning provides static solution, so performance can degrade significantly when network conditions change. PCC relies on micro-experiments and hence is reactive. So, there is scope for proactive learning and predictions. States are vectors comprising of sending rate, received rate, loss rate, latency, and corresponding reward for a monitoring interval (MI). Actions are changes to sending rates at each MI based on a fixed length history of sending rates and corresponding states. The authors argue that the history-length can be short yet effective. Rewards should be application specific. They run 2 sets of experiments using Pantheon and Emulab - 1. test a simple model (capacity, latency) with simple objectives and examine its behavior in and around the range of conditions, and 2. compare with other schemes like Remy, Copa and PCC-Vivace by using their reward functions. The initial results are promising - the proposed scheme, Custard, reacts faster to signs of congestion (like higher delay) by predicting decreasing rewards.
 <br/><br/>
@@ -269,7 +281,6 @@ According to me, Remy makes sense if network conditions are static, as is often 
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">Thoughts on Load Distribution and the Role of Programmable Switches</h3>CCR 2019</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 01-MAR-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 The authors claim that application semantics are often compromised in order to move application logic to programmable switches. 
 This is due to the fact that switches are state, compute, and amount of processing limited. 
@@ -294,7 +305,6 @@ in order to move it to the network.
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">A fuzzy ant colony optimization algorithm for topology design of distributed local area networks</h3>IEEE Swarm Intelligence Symposium 2008</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 30-JAN-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 Ant colony optimization (ACO) algorithm is based on the behavior of ant colonies. 
 When ants travel through a path, they release pheromones which evaporate over time. 
@@ -313,7 +323,6 @@ This paper draws my attention to this field of optimization using natural phenom
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">Treads: Transparency-Enhancing Ads</h3>HotNets 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 27-JAN-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 Ad-platform providers (Facebook, Google, etc.) allow advertisers to target users based on hundreds of attributes 
 (FB: 600+ computed internally, 500+ from data brokers) not disclosed to users. 
@@ -332,7 +341,6 @@ that the authors try to handle in this paper, is well known and has to be dealt 
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">Is the Web ready for HTTP/2 Server Push?</h3>CoNEXT 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 21-JAN-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 The authors are trying to build a testbed to systematically analyze H2 Server Push using a combination of tools 
 (mahimahi+mitmproxy+h2o-FastCGI module). They analyze the impact of various strategies on PLT and SpeedIndex. 
@@ -351,7 +359,6 @@ and rendering process + caching strategies.
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">Attaining the Promise and Avoiding the Pitfalls of TCP in the Datacenter</h3>NSDI 2015</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 20-JAN-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 The author from Morgan Stanley shares his experience while deploying DCTCP in one of their data centers. 
 The common TCP pitfalls (stalls due to delayed ACKs, incast, etc.) urges them to incrementally deploy DCTCP. 
@@ -372,7 +379,6 @@ scalability of DCTCP, etc.
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">Reducing Web Latency: the Virtue of Gentle Aggression</h3>SIGCOMM 2013</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 20-JAN-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 Ideally TCP should deal with losses within 1-RTT in order to reduce latencies observed over today's Internet by not using the RTO which is often orders of magnitude larger than RTT. 
 The authors observe that a large fraction of the losses happen at the tail of small flows (last 1-2 packets are dropped). 
@@ -391,7 +397,6 @@ They observe a 47% decrease in the 99-th ptile latency compared to TCP.
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">Studying the Evolution of Content Providers in the Internet Core</h3>TMA 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 16-JAN-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 The authors study the evolution of the core of the Internet - transit providers being replaced over time by content providers. 
 The authors define the core elements as those entities in the Internet which are densely connected. 
@@ -404,7 +409,6 @@ This part is a bit dry and hand-wavy though. Here is the link to their datasets 
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">Passive Observations of a Large DNS Service: 2.5 Years in the Life of Google</h3>TMA 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 16-JAN-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 This measurement study shows that adoption of public DNS service like Google Public DNS is driven by DDoS outages (no. of tweets versus adoption) and the end users usually do a one way change never returning back to their ISP's DNS resolver. 
 CDNs have problem optimizing service because the public DNS servers are no longer proxies for client locations. 
@@ -417,7 +421,6 @@ Also, they find many email servers using such public DNS service which also rais
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">BGP Communities: Even more Worms in the Routing Can</h3>IMC 2018</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 13-JAN-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 BGP communities are BGP attributes used to tag advertisements. 
 They are used, for example, for blackholing in case of DDoS attacks, as discussed in the paper above. 
@@ -430,7 +433,6 @@ The authors craft various such attacks in the paper, test them first in the lab 
 <hr>
 
 <table width="100%"><tr><td><h3 id="papers">Inferring BGP Blackholing Activity in the Internet</h3>IMC 2017</td><td align="right" style="opacity: 0.4;"><a href="#top">[Top]</a></td></tr></table>
-Review date: 12-JAN-2019<br/>
 <br/><table width="80%"><tr><td style="text-align: justify;">
 Passive and active measurements inferring the adoption of BGP blackholing (BGP announcements letting upstream ISP/IXPs drop packets to victim destinations) in the wild in order to mitigate DDoS attacks. 
 The adoption rates have been high in recent years among ISP/IXPs. 
