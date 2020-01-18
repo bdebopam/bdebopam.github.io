@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<head>
+<title>Internet from Space</title>
+<meta name="description" content="Blog post on Internet from Space">
+<meta name="keywords" content="Internet,space,satellite,SpaceX,OneWeb,motif,network,design">
+<meta name="author" content="Debopam Bhattacherjee">
+<style>
+.mySlides {display:none;}
+</style>
+</head>
+
+<body style="background-color: #f4f8ff; padding-top: 20px; padding-right: 80px; padding-bottom: 50px; padding-left: 80px;">
+<h1>Supercharging the "Internet from Space"</h1>
+<h3><a href="https://bdebopam.github.io" target="_blank">Debopam Bhattacherjee</a> and  
+<a href="https://people.inf.ethz.ch/asingla/" target="_blank">Ankit Singla</a></h3>
+<p>
+SkyNet is a fictional future, but <b>"SpaceNet"</b> may soon be real. 
+Several companies, including <a href="https://www.spacex.com/" target="_blank">SpaceX</a>, 
+<a href="https://www.geekwire.com/2019/amazon-project-kuiper-broadband-satellite/" target="_blank">Amazon</a>, 
+and <a href="https://www.oneweb.world/" target="_blank">OneWeb</a>, 
+are building constellations with thousands of low-flying satellites 
+to bring high-bandwidth ‘Internet from space’ to the remotest corners of the world. 
+The planned satellites would fly only a few hundred kilometers above us, 
+potentially connecting distant locations like Zürich and Tokyo within 70 milliseconds, 
+compared to <a href="https://wondernetwork.com/pings/Zurich/Tokyo" target="_blank">250+ milliseconds today</a>.
+</p>
+<p>
+Naturally, these are exciting times for us Computer Networking researchers: 
+while there is great potential in these satellite constellations, 
+they require us to rethink virtually every aspect of networking &mdash; 
+today’s networking techniques simply weren’t designed to work for infrastructure 
+that’s zooming around in space at 27,000 km/hour! 
+</p>
+<p>
+We have <a href="http://people.inf.ethz.ch/asingla/papers/hotnets18-satnet.pdf" target="_blank">outlined</a> several challenges such networks raise, 
+and investigated one of these in some depth. 
+Specifically, in our recent paper, 
+"<a href="https://dl.acm.org/doi/10.1145/3359989.3365407" target="_blank">Network topology design at 27,000 km/hour</a>", ACM CoNEXT 2019, 
+we proposed an efficient way of interconnecting fast-moving satellites to each other, 
+such that they provide more efficient paths between ground locations. 
+Our approach, applied to SpaceX’s proposal, for instance, 
+could improve its efficiency by as much as 2x, 
+thus allowing superior connectivity with fewer satellites. 
+Our core idea is simple, and draws inspiration from visual design: 
+exploit the symmetry of the proposed constellations 
+to connect satellites into efficient repetitive patterns we call “motifs”. 
+While the problem of finding the best inter-satellite connectivity is computationally hard, 
+searching exhaustively through the set of possible motifs is possible, 
+and gives high-quality solutions. A 2-minute explainer about this work is in the video below:
+</p>
+<div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/1hjMRRPMGsE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<p>
+This work received the <a href="https://irtf.org/" target="_blank">Internet Research Task Force</a>’s 
+<a href="https://irtf.org/anrp/" target="_blank">Applied Networking Research Prize</a> for 2020, 
+and has <a href="https://cacm.acm.org/news/241610-a-network-design-for-the-internet-from-space/fulltext" target="_blank">generated</a> 
+<a href="https://washingtondailyreport.com/laser-linked-satellites-could-deliver-internet-from-space/" target="_blank">significant</a> 
+<a href="https://themediahq.com/a-new-network-plan-for-the-internet-from-space/" target="_blank">news</a> and 
+<a href="https://www.reddit.com/r/spacex/comments/efhz3x/54_higher_efficiency_for_starlink_network/" target="_blank">social media</a> interest. 
+We have only gotten started though; <a href="https://ndal.ethz.ch/" target="_blank">our lab</a> is exploring many of the other hard challenges in this area. 
+As more and more satellite launches take place over the coming months, 
+and these networks start to operate, we stand ready to embrace the opportunities and tackle the challenges.
+</p>
+</body>
