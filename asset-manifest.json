@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.6061bca6.chunk.css",
-    "main.js": "/static/js/main.434fcf5a.chunk.js",
-    "main.js.map": "/static/js/main.434fcf5a.chunk.js.map",
+    "main.css": "/static/css/main.ec21840a.chunk.css",
+    "main.js": "/static/js/main.94f2fb6c.chunk.js",
+    "main.js.map": "/static/js/main.94f2fb6c.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.b0b73ae7.js",
     "runtime-main.js.map": "/static/js/runtime-main.b0b73ae7.js.map",
     "static/js/2.fb823ab8.chunk.js": "/static/js/2.fb823ab8.chunk.js",
     "static/js/2.fb823ab8.chunk.js.map": "/static/js/2.fb823ab8.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.6061bca6.chunk.css.map": "/static/css/main.6061bca6.chunk.css.map",
+    "static/css/main.ec21840a.chunk.css.map": "/static/css/main.ec21840a.chunk.css.map",
     "static/js/2.fb823ab8.chunk.js.LICENSE.txt": "/static/js/2.fb823ab8.chunk.js.LICENSE.txt",
     "static/media/advanced-computer-networks.jpeg": "/static/media/advanced-computer-networks.3728aaf7.jpeg",
     "static/media/advanced-computer-networks.jpg": "/static/media/advanced-computer-networks.66f81f1e.jpg",
@@ -39,7 +39,7 @@
   "entrypoints": [
     "static/js/runtime-main.b0b73ae7.js",
     "static/js/2.fb823ab8.chunk.js",
-    "static/css/main.6061bca6.chunk.css",
-    "static/js/main.434fcf5a.chunk.js"
+    "static/css/main.ec21840a.chunk.css",
+    "static/js/main.94f2fb6c.chunk.js"
   ]
 }
